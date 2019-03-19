@@ -1,4 +1,14 @@
 # OneFileRave
-Simple Audio Visualizer w/ Arduino Mood Lighting
-Outputs a byte value over serial to sync up with a seperate lighting project
-Edit / remove the serial component by modifiying line `29`
+Simple MPD Audio Visualizer w/ optional Arduino Mood Lighting
+(Outputs a byte value over serial to sync up with a seperate lighting project)
+
+
+
+## Requirements:
+* Python3 w/ 
+  * numpy
+  * serial
+  * scipy
+  * opengl
+* MPD w/
+  * fifo output
