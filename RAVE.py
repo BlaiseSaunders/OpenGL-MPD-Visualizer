@@ -26,12 +26,13 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 
-ser = serial.Serial("/dev/serial/by-id/usb-Arduino_LLC_Arduino_Leonardo-if00", 9600, timeout = 1)
+#ser = serial.Serial("/dev/serial/by-id/usb-Arduino_LLC_Arduino_Leonardo-if00", 9600, timeout = 1)
 
 
 enerd = 1
 
 
+"""
 def ser_write():
     global enerd 
     while True:
@@ -51,15 +52,15 @@ def ser_write():
 
 
         out = int(enerd*255)
-        print("RAW SAUCE: "+str(out))
+        #print("RAW SAUCE: "+str(out))
 
         out = out.to_bytes(1, 'little')
-        ser.write(out)
-        print("Wrote to ser: "+str(out))
+        #ser.write(out)
+        #print("Wrote to ser: "+str(out))
         
 
     return
-
+"""
 
 
 #pygame.init()
@@ -87,7 +88,7 @@ def input(events):
 
 def SHUTITDOWN():
     pygame.display.quit()
-    ser.close()
+    #ser.close()
     traceback.print_exc(file=sys.stdout)
     os.kill(os.getpid(), signal.SIGKILL)
 
@@ -224,12 +225,12 @@ def peak_anal(data):
     return avg_peak_dist
     
 
-
-get_thread = threading.Thread(target=clout_getter)
+"""
 ser_thread = threading.Thread(target=ser_write)
-get_thread.start()
 ser_thread.start()
-
+"""
+get_thread = threading.Thread(target=clout_getter)
+get_thread.start()
 
 last_draw = normies
 
